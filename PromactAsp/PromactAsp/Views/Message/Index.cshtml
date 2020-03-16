@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model IEnumerable<PromactAsp.Models.Message>
+    <div class="container">
+        <div class="overflow-auto" style="height:35rem;margin-top:3rem;">
+            @foreach (var m in Model.Reverse())
+            {
+
+                <div>
+                    <div class="card" style="width: 100%,padding:2rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Messageid : @m.messageid</h4>
+                            <h4 class="card-title">Username : @m.username</h4>
+                            @if (m.iscomment == 1)
+                            {
+                                var msg = Model.Where(ms => ms.messageid == m.parentid).Select(ms => ms);
+                                string f = "a";
+                                @foreach (var a in msg) { f = a.message; }
+                                <p class="card-text" style="color:darkred;font-size:1rem;padding:1rem">This is comment to  (message id : @m.parentid)</p>
+                                <p class="card-text" style="color:darkred;font-size:1rem;padding:1rem"><span style="font-size:1.5rem;background-color:darkgrey;padding:1rem;"> "@f"</span></p>
+                            }
+                            @if (m.isshared == 1)
+                            {
+                                var msg = Model.Where(ms => ms.messageid == m.shareid).Select(ms => ms);
+                                string f = "a";
+                                string u = "a";
+                                @foreach (var a in msg) { f = a.message; u = a.username; }
+                                <p class="card-text" style="color:darkred;font-size:1rem;">Repost to (message id : @m.shareid)</p>
+                                <p class="card-text" style="color:darkred;font-size:1rem;padding:1rem;"><span style="font-size:1.5rem;background-color:darkgrey;padding:1rem;"> "@f"</span> by <span style="font-size:1.1rem;background-color:darkgrey;padding:1rem;"> @u </span></p>
+                            }
+
+                            <p class="card-text" style="background-color:black;color:white;padding:1rem;font-size:1.5rem;">@m.message</p>
+                            <a class="btn btn-primary" asp-controller="Postm" asp-action="Like" asp-route-id="@m.messageid">Like @m.msglikes</a>
+                            <a class="btn btn-primary" asp-controller="Postm" asp-action="Comment" asp-route-id="@m.messageid">Comment</a>
+                            <a class="btn btn-primary" asp-controller="Postm" asp-action="Share" asp-route-id="@m.messageid">Share</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div><br></br>
+        <a class="btn btn-primary" asp-controller="Postm" asp-action="Postm">Post a Message</a>
+    </div>

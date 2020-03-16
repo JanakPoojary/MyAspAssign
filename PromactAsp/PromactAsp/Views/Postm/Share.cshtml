@@ -1,0 +1,49 @@
+﻿@model PromactAsp.Models.Message
+
+@{
+    ViewData["Title"] = "Share";
+}
+<h3>Write something here and share ...</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Postm" asp-action="Share">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="message" class="control-label"></label>
+                <input asp-for="message" class="form-control" />
+                <span asp-validation-for="message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="username" class="control-label"></label>
+                <input asp-for="username" class="form-control" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="iscomment" class="form-control" type="hidden" value="0" />
+                <span asp-validation-for="iscomment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="parentid" class="form-control" type="hidden" value="0" />
+                <span asp-validation-for="parentid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="isshared" class="form-control" type="hidden" value="1" />
+                <span asp-validation-for="isshared" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="shareid" class="form-control" type="hidden" value="0" />
+                <span asp-validation-for="shareid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Share" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
