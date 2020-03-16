@@ -8267,11 +8267,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\PromactAsp\\PromactAsp\\PromactAsp.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\GitHub\\MyAspAssign\\PromactAsp\\PromactAsp\\PromactAsp.csproj",
       "projectName": "PromactAsp",
-      "projectPath": "C:\\Users\\ADMIN\\source\\repos\\PromactAsp\\PromactAsp\\PromactAsp.csproj",
+      "projectPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\MyAspAssign\\PromactAsp\\PromactAsp\\PromactAsp.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADMIN\\source\\repos\\PromactAsp\\PromactAsp\\obj\\",
+      "outputPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\MyAspAssign\\PromactAsp\\PromactAsp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
